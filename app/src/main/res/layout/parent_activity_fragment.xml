@@ -9,7 +9,7 @@
     tools:context="com.example.adam.criminalintent.CrimeActivity">
 
 
-    <include layout="@layout/content_crime"/>
+    <include layout="@layout/activity_fragment"/>
 
 
 </android.support.design.widget.CoordinatorLayout>
