@@ -84,7 +84,7 @@ public class CrimeListFragment extends Fragment {
             startActivity(i);
         }
 
-        public void bindCrime(final Crime crime) {
+        public void bindCrime(Crime crime) {
             mCrime = crime;
             mTitleTextView.setText(mCrime.getTitle());
             mDateTextView.setText((mCrime.getDate()).toString());
@@ -92,10 +92,7 @@ public class CrimeListFragment extends Fragment {
             mSolvedCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    crime.setSolved(isChecked);
-                    String solved = "" + crime.isSolved();
-                    Toast.makeText(getContext(), solved , Toast.LENGTH_SHORT).show();
-
+                    mCrime.setSolved(isChecked);
                 }
             });
         }
