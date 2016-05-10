@@ -42,6 +42,8 @@ public class CrimeListFragment extends Fragment {
         updateUI();
     }
 
+
+
     private void updateUI() {
 
 
@@ -80,7 +82,7 @@ public class CrimeListFragment extends Fragment {
         @Override
         public void onClick(View v) {
 
-            Intent i = CrimeActivity.newIntent(getActivity(), mCrime.getId());
+            Intent i = CrimePagerActivity.newIntent(getActivity(), mCrime.getId());
             startActivity(i);
         }
 
