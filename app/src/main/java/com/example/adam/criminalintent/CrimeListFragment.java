@@ -6,11 +6,14 @@ package com.example.adam.criminalintent;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -25,6 +28,12 @@ public class CrimeListFragment extends Fragment {
 
     private RecyclerView mCrimeRecyclerView;
     private CrimeAdapter mCrimeAdapter;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,7 +51,16 @@ public class CrimeListFragment extends Fragment {
         updateUI();
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        Log.d("TAG", "++++++++++++++++++++++++++++++++++++++Inside of the menu inflater area");
+        super.onCreateOptionsMenu(menu, inflater);
+        menu.clear();
+        inflater.inflate(R.menu.fragment_crime_list, menu);
+        Log.d("TAG", "after the menu inflater");
+        updateUI();
 
+    }
 
     private void updateUI() {
 
