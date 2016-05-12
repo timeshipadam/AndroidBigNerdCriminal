@@ -30,6 +30,7 @@ public class CrimeFragment extends Fragment {
     private TextView mTextView;
     private EditText mTitleField;
     private Button mDateButton;
+    private Button mTitleButton;
     private CheckBox mSolvedCheckBox;
 
     @Override
@@ -60,23 +61,15 @@ public class CrimeFragment extends Fragment {
 
 
         mTitleField = (EditText) view.findViewById(R.id.crime_title);
-        mTitleField.addTextChangedListener(new TextWatcher() {
+        mTitleButton = (Button)view.findViewById(R.id.fragment_crime_title_button);
+        mTitleButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//                mCrime.setTitle(s.toString());
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
+            public void onClick(View v) {
+                mCrime.setTitle(mTitleField.getText().toString());
+                mTextView.setText(mTitleField.getText().toString());
             }
         });
-
+//
         mDateButton = (Button) view.findViewById(R.id.crime_date);
         updateDate();
         mDateButton.setOnClickListener(
